@@ -1,0 +1,14 @@
+{
+    "server": {
+        "process": "oauth2-ahtorization",
+        "host": "http://authorization-oauth2.io.com",
+        "port": "8080"
+    },
+	"database": {
+        "engine": "postgres",
+        "user": "postgres",
+        "password": "notab12",
+        "host": "authorization-oauth2.io.com",
+        "port": "5432"
+    }
+}
