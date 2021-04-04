@@ -1,0 +1,5 @@
+2021-04-04T12:56:25:00.922	DEBUG	utility/log.go:65	DESKTOP-FSAQNIO oauth2-ahtorization ---  Logger Init Complete!!
+2021-04-04T12:56:25:00.984	ERROR	middlewares/database.go:19	DESKTOP-FSAQNIO oauth2-ahtorization ---  Database Init Failed!:  failed to connect to `host=authorization-oauth2.io.com user=postgres database=postgres`: hostname resolving error (lookup authorization-oauth2.io.com: no such host)
+2021-04-04T12:57:37:00.687	DEBUG	utility/log.go:65	DESKTOP-FSAQNIO oauth2-ahtorization ---  Logger Init Complete!!
+2021-04-04T12:57:37:00.920	DEBUG	middlewares/database.go:23	DESKTOP-FSAQNIO oauth2-ahtorization ---  Database Init Complete!  host=authorization-oauth2.io.com user=postgres password=notab12 dbname=postgres port=5432 sslmode=disable
+2021-04-04T12:57:37:00.921	DEBUG	router/router.go:19	DESKTOP-FSAQNIO oauth2-ahtorization ---  Router Init Complete!!

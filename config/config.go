@@ -17,10 +17,12 @@ type server struct {
 
 type database struct {
 	Engine   string `json:"engine"`
+	Dbname   string `json:"dbname"`
 	User     string `json:"user"`
 	Password string `json:"password"`
 	Host     string `json:"host"`
 	Port     string `json:"port"`
+	SslMode  bool   `json:"sslmode"`
 }
 
 type Config struct {
@@ -53,4 +55,16 @@ func GetPort() string {
 
 func GetHost() string {
 	return fmt.Sprintf("%s:%s", configs.Server.Host, configs.Server.Port)
+}
+
+func GetDBEngine() string {
+	return configs.Database.Engine
+}
+
+func GetDBInfo() string {
+	sslmode := "disable"
+	if configs.Database.SslMode {
+		sslmode = "require"
+	}
+	return fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s", configs.Database.Host, configs.Database.User, configs.Database.Password, configs.Database.Dbname, configs.Database.Port, sslmode)
 }

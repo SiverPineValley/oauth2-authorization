@@ -1,13 +1,15 @@
 package middlewares
 
 import (
-	"net/http"
 	"oauth2-authorization/models"
 	"oauth2-authorization/utility"
+
+	"github.com/labstack/echo/v4"
 )
 
-func RequestLogger() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		utility.Log(models.LogLevelInfo, w, r)
-	})
+func RequestLogger(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		utility.Log(models.LogLevelInfo, c.Response().Writer, c.Request())
+		return next(c)
+	}
 }

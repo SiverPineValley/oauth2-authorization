@@ -2,9 +2,12 @@ package controllers
 
 import (
 	"fmt"
-	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
-func HelloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello World!!")
+func HelloWorld(c echo.Context) error {
+	fmt.Fprintln(c.Response().Writer, "Hello World!!")
+
+	return nil
 }

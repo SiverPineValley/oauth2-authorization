@@ -7,8 +7,6 @@ import (
 	"oauth2-authorization/router"
 	"oauth2-authorization/utility"
 	"runtime"
-
-	"github.com/urfave/negroni"
 )
 
 func main() {
@@ -26,13 +24,17 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// 3. Init Database
+	err = middlewares.InitDatabase()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	// 3. Init Router
-	router := router.InitRouter()
+	e := router.InitRouter()
 
 	// 4. Request Logger Middlewares
-	n := negroni.Classic()
-	n.UseHandler(router)
-	n.UseHandler(middlewares.RequestLogger())
+	e.Use(middlewares.RequestLogger)
 
-	n.Run(":" + config.GetPort())
+	e.Start(":" + config.GetPort())
 }

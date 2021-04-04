@@ -6,9 +6,11 @@
     },
 	"database": {
         "engine": "postgres",
+        "dbname": "postgres",
         "user": "postgres",
         "password": "notab12",
         "host": "authorization-oauth2.io.com",
-        "port": "5432"
+        "port": "5432",
+        "sslmode": false
     }
 }
